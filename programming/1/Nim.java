@@ -10,8 +10,8 @@ import java.util.Random;
 
 public class Nim{
   public static void main(String[] args) {
-    int stones = 12;
-    int stonesTaken = 0;
+    int stones = 12;  // initialize stones
+    int stonesTaken = 0;  // initialize stonesTaken
     int machineTurn;
     Random rand = new Random();
 

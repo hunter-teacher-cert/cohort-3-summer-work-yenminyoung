@@ -1,7 +1,7 @@
 /**
  * ArrayPractice by Team 11
  * Yenmin Young
- * collaborators: Alana Robinson, Adam Driggs, Erwin Lara
+ * collaborators: Alana Robinson, Adam Driggers, Erwin Lara
  */
 
 /**
@@ -37,7 +37,7 @@
 
 import java.util.*;
 import java.io.*;
-import java.util.Random;
+//import java.util.Random; //don't need because Random is a part of util
 
 public class ArrayPractice{
 
@@ -230,13 +230,11 @@ public class ArrayPractice{
     int count=0;
 
     for(int i = 0; i < data.length; i++){
-      if (data[i]%2 == 1){
-        count ++;
-      }
+      
     }
-    System.out.println("There are " + count + " odd numbers in this array.");
     // Note the % operator is the modulo (basically remainder) function
     // in java. Use to determine if an integer is odd.
+
     return count;
   }
 
@@ -252,9 +250,29 @@ public class ArrayPractice{
      If the input array contains 5,8,13,7,27,2
      After the routine, the array will contain 2,27,7,13,8,5
   */
+/*data = [7, 8, 6, 3, 14]
+  flop = [14, 3, 6, 8, 7]
+flop[0] = data[4]
+flop[1] = data[3]
+flop[2] = data[2]
+flop[3] = data[1]
+flop[4] = data[0]
+*/
+  
   public static void flip( int[] data )
   {
-    /* YOUR BRILLIANT CODE HERE */
+    int[] flop = new int[data.length]; //new array the same length as data
+    //build the flopped array
+    for(int i = data.length - 1; i >= 0; i--){ //go backwards through the data array
+      //add data at i to the inverse value of flop... how?
+      int flopIndex = data.length - (1 + i); //length - length = 0, so first item
+      flop[flopIndex] = data[i];
+    }
+
+    //data = flop; //this would be nice but doesnt work,java is pass by value! so...
+    for(int i = 0; i <  data.length; i++){
+      data[i] = flop[i];
+    }
   }
 
 
@@ -265,25 +283,19 @@ public class ArrayPractice{
     // and add more lines as you add additional routines.
 
     int[] data = buildRandomArray(10, 20);
-    printArray(data);
     arraySum(data);
     firstOccurence(data, 4);
     findMaxValue(data);
-    isSorted(data);
-    countOdds(data);
-
-    System.out.println("");
+    
     int[] data2 = buildIncreasingArray(10,5,3);
+    printArray(data);
     printArray(data2);
-    isSorted(data2);
-    
-    System.out.println("");
-    int[] tester = {5, 7, 12, 10, 11}; //try this one!
-    printArray(tester);
-    isSorted(tester);
-    
-    
 
+    System.out.println("testing flop");
+    int [] testValues = {7, 8, 6, 3, 14};
+    printArray(testValues);
+    flip(testValues);
+    printArray(testValues);
     // add calls to show that the methods you write work.
   }
 }
