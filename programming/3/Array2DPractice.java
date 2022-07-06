@@ -200,7 +200,9 @@ public class Array2DPractice
             for (int col = -1; col <= 1; col++){
               if ( 0 <= r + row && r + row < board.length){
                 if (0 <= c + col && c + col < board[0].length){
-                  board[r + row][c + col] = 'c';
+                  if (board[r+row][c+col] == 'a'){
+                    board[r + row][c + col] = 'c';
+                  }
                 }
               }
             }
@@ -264,7 +266,7 @@ public class Array2DPractice
     char[][] b = buildBoard(7,8,'z');
     char[][] a = buildBoard(7,7,'a');
     a[1][1] = 'b';
-    a[4][4] = 'b';
+    a[2][1] = 'b';
     printBoard(b);
     char [][] mood = copyBoard(b);
     printBoard(mood);
