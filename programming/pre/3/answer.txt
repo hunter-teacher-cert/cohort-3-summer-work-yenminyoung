@@ -6,11 +6,23 @@ No, I wug.
 You wugga wug.
 I wug.
 
-
+-----------------------------------------------------------------
 2. Draw a stack diagram that shows the state of the program the first time ping is invoked.
+See image in folder.
 
+-----------------------------------------------------------------
 3. What happens if you invoke baffle(); at the end of the ping method? (We will see why in the next chapter.)
+If you invoke baffle(); at the end of the ping method, you will get an endless cycle.
 
+Whenever you call baffle();, it will print out "wug" and then a "." from the ping();. But then ping() will also tell you to baffle() so it will print out "wug" on a new line and then a "." again from the ping();. This will be continuous like this:
+wug.
+wug.
+wug.
+wug.
+wug.
+
+
+-----------------------------------------------------------------
 public static void zoop() {
     baffle();
     System.out.print("You wugga ");

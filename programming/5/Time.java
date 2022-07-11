@@ -71,7 +71,8 @@ public class Time {
        returns a string representation of the time
     */
     public String toString(){
-	    return("Hours: " + this.hours + "  Minutes: " + this.minutes + "  Seconds: " + this.seconds);
+	    // return("Hours: " + this.hours + "  Minutes: " + this.minutes + "  Seconds: " + this.seconds);
+      return String.format("%d:%d:%d", this.hours, this.minutes, this.seconds);
     }
 
 
@@ -85,7 +86,10 @@ public class Time {
     public void set(int hrs, int mins, int secs){
 	// add the code to add the time represented by other
 	// to this instance.
-      System.out.println(hrs + ":" + mins + ":" + secs);
+      this.hours = hrs;
+      this.minutes = mins;
+      this.seconds = secs;
+      // System.out.println(hrs + ":" + mins + ":" + secs);
     }
 
     
@@ -97,10 +101,18 @@ public class Time {
        the time other.
     */
     public void add(Time other){
-      int sumH = this.hours + other.hours;
-      int sumM = this.minutes + other.minutes;
-      int sumS = this.seconds + other.seconds;
-      set(sumH, sumM, sumS);
+      this.hours += other.hours;
+      this.minutes += other.minutes;
+      this.seconds += other.seconds;
+
+      if (this.minutes >= 60){
+        this.minutes -= 60;
+        this.hours ++;
+      }
+      if (this.seconds >= 60){
+        this.seconds -= 60;
+        this.minutes ++;
+      }
     }
 
 

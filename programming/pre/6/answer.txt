@@ -1,0 +1,44 @@
+Think Java
+Chapter 7.9
+Exercise 1
+
+Consider the following methods:
+
+public static void main(String[] args) {
+    loop(10);
+}
+
+public static void loop(int n) {
+    int i = n;
+    while (i > 1) {
+        System.out.println(i);
+        if (i % 2 == 0) {
+            i = i / 2;
+        } else {
+            i = i + 1;
+        }
+    }
+}
+Draw a table that shows the value of the variables i and n during the execution of loop. The table should contain one column for each variable and one line for each iteration.
+What is the output of this program?
+Can you prove that this loop terminates for any positive value of n?
+
+
+Answer:
+If the number is even, cut it in half
+If the number is odd, add one, so that it's even.
+Continue this for all numbers greater than 1
+
+If n = 10, then:
+i = 10  // even: cut in half
+i = 5   // odd: add 1
+i = 6   // even: cut in half
+i = 3   // odd: add 1
+i = 4   // even: cut in half
+i = 2   // even: cut in half
+i = 1   // end while loop
+
+Regardless of what the intial n value is, the values will always go down to 4, 2, 1 and terminate at 1.
+
+If you start with an even number, it will be reduced in half continuously until you reach 1
+If you start with an odd number, it will be added by 1 and thus turn into an even number. Then, it will proceed to be reduced.
