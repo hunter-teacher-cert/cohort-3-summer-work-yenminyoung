@@ -37,10 +37,9 @@ public class SuperArray
   public SuperArray( int size )
   {
     //init underlying/inner storage of specified capacity
-    int maxLength = 30;
+    data = new int [size];
     //init instance vars
-    data = new int [maxLength];
-    numberElements = size;
+    numberElements = 0;
     
   }
 
@@ -48,10 +47,9 @@ public class SuperArray
   public SuperArray()
   {
     //init underlying/inner storage of capacity 10
-    int maxLength = 10;
+    data = new int [10];
     //init instance vars
-    data = new int [maxLength];
-    numberElements = 10;
+    numberElements = 0;
   }
 
 
@@ -66,14 +64,16 @@ public class SuperArray
        Implement the rest of this method first,
        then only write this section once the rest is tested and working.
     */
-    /* YOUR SIMPLE+SMART CODE HERE */
+    if (data.length<=numberElements){
+      grow();
+    }
 
     // add item
-    /* YOUR SIMPLE+SMART CODE HERE */
+    data[numberElements] = value;
 
 
     // increment numberElements
-    /* YOUR SIMPLE+SMART CODE HERE */
+    numberElements ++;
 
   }//end add()
 
@@ -81,25 +81,26 @@ public class SuperArray
   public boolean isEmpty()
   {
     //return whether this SuperArray instance is empty
-    /* YOUR SIMPLE+SMART CODE HERE */
-    return false;
+    return numberElements == 0;
   }
 
 
   public int get(int index)
   {
     //return item at index
-    /* YOUR SIMPLE+SMART CODE HERE */
-    return 100;
+    return data[index];
   }
 
 
   public String toString()
   {
     //return stringified version of this Object
-    /* YOUR SIMPLE+SMART CODE HERE */
-    return "womp womp";
-  }//end toString()
+    String arrayString = "";
+    for (int i = 0; i < data.length; i++){
+      arrayString = arrayString + Integer.toString(data[i]) + " ";
+    }
+    return arrayString;
+  }
 
 
   //return Stringified version of this Object,
@@ -121,26 +122,78 @@ public class SuperArray
   public void remove(int index)
   {
     // shift items down to remove the item at index
-    /* YOUR SIMPLE+SMART CODE HERE */
+    /* 3 7 10 4 0 0 0
+      Index = 1
+      NumberElements = 4
+      Remove index 1
+      3 7 10 4 0 0 0
+      Index 1 = index 2
+      3 10 10 4 0 0 0
+      Index 2 = index 3
+      3 10 4 4 0 0 0
+      Index 3 = 0
+      3 10 4 0 0 0 0
+    */
 
+    /* 3 7 10 4
+      Index = 1
+      NumberElements = 4
+      data.length = 4
+      Goal: Remove index 1
+      3 7 10 4
+      Index 1 = index 2
+      3 10 10 4
+      Index 2 = index 3
+      3 10 4 4
+      Index 3 = 0
+      3 10 4 0
+    */
+    
+    for (int i = index; i < numberElements-1; i++){
+        data[i] = data[i+1];
+      }
+    data[numberElements-1] = 0;
+    
     // subtract fom numElements;
-    /* YOUR SIMPLE+SMART CODE HERE */
+    numberElements --;
   }
 
 
   public void add(int index, int value)
   {
+    /* 3 7 10 4 0 0 0
+      NumberElements = 4
+      Goal: Add to index 1 value 5
+      3 7 10 4 0 0 0
+
+      Index 4 = Index 3
+      3 7 10 4 4 0 0
+
+      Index 3 = Index 2
+      3 7 10 10 4 0 0
+
+      Index 2 = Index 1
+      3 7 7 10 4 0 0
+
+      Index 1 = value
+      3 5 7 10 4 0 0
+    */
+    
     // see if there's enough room
-    /* YOUR SIMPLE+SMART CODE HERE */
+    if (data.length<=numberElements){
+      grow();
+    }
 
     // shift elements toward the end of the array
-    /* YOUR SIMPLE+SMART CODE HERE */
+    for (int i = numberElements; i > index; i--){
+      data[i] = data[i-1];
+    }
 
     // insert new element
-    /* YOUR SIMPLE+SMART CODE HERE */
+    data[index] = value;
 
     // increment numElements
-    /* YOUR SIMPLE+SMART CODE HERE */
+    numberElements++;
   }
 
 
@@ -149,13 +202,17 @@ public class SuperArray
     // create a new array with extra space
     // Q: How did you decide how much to increase capacity by?
     /* YOUR SIMPLE+SMART CODE HERE */
+    int newArray[] = new int [numberElements+1];
 
     // copy over all the elements from the old array to the new one
     /* YOUR SIMPLE+SMART CODE HERE */
+    for (int i = 0; i<data.length; i++){
+      newArray[i] = data[i];
+    }
 
     // point data to the new array
     // Q: How does this look when illustrated using encapsulation diagram?
-    /* YOUR SIMPLE+SMART CODE HERE */
+    data = newArray;
   }//end grow()
 
 }//end class
