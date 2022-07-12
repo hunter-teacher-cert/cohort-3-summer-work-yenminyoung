@@ -14,10 +14,11 @@ public class Loops {
     System.out.println("");
     
     System.out.println("Exercise 3: ");
-    System.out.println(power(2.22, 5));
+    System.out.println(power(2.2, 4));
     System.out.println("");
     
     System.out.println("Exercise 4: ");
+    System.out.println(factorial(4)); // 4*3*2*1 = 24
   }
 
   // Exercise 2: Approximate the square root
@@ -32,8 +33,21 @@ public class Loops {
     return result;
   }
 
-  // Exercise 3: power
+  // Exercise 3: Power
   public static double power(double x, int n){
-    for (i = )
+    double product = 1;
+    for (int i = 0; i < n; i++){
+      product *= x;
+    }
+    return product;
+  }
+
+  // Exercise 4: Factorial
+  public static int factorial(int n){
+    int product = 1;
+    for (int i = 1; i<=n; i++){
+      product *= i;
+    }
+    return product;
   }
 }

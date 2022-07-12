@@ -1,0 +1,45 @@
+Folder 7
+Think Java Chapter 8.12
+Exercise 2
+
+The purpose of this exercise is to practice reading code and recognizing the traversal patterns in this chapter. The following methods are hard to read, because instead of using meaningful names for the variables and methods, they use names of fruit.
+For each method, write one sentence that describes what the method does, without getting into the details of how it works. For each variable, identify the role it plays.
+
+// banana method multiples all of the elements of an array together
+// kiwi is the variable that stores the product
+// i is the index of the array that increases
+public static int banana(int[] a) {
+    int kiwi = 1;
+    int i = 0;
+    while (i < a.length) {
+        kiwi = kiwi * a[i];
+        i++;
+    }
+    return kiwi;
+}
+
+// grapefruit method searches through an array for a value called "grape" and returns the index location. If it can't find the value, then it will return "-1" to signify that the value is not in the array.
+// grape is the value we are looking for
+public static int grapefruit(int[] a, int grape) {
+    for (int i = 0; i < a.length; i++) {
+        if (a[i] == grape) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+// pineapple method counts how many of a specific element is in an array
+// apple is the value we are looking for
+// pine is the specific element that we are looking at. It goes through the whole array
+// pear is the counter.
+public static int pineapple(int[] a, int apple) {
+    int pear = 0;
+    for (int pine: a) {
+        if (pine == apple) {
+            pear++;
+        }
+    }
+    return pear;
+}
+

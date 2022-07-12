@@ -1,7 +1,7 @@
 /**
- * SuperArray by Team MarvelvsDC
- * First Last
- * collaborators: First Last, First Last
+ * SuperArray by Team 1
+ * Yenmin Young
+ * collaborators: Yanique Sears, Latoya Boland, Stephen Sabaugh
  */
 
 /**
@@ -103,9 +103,9 @@ public class SuperArray
   }
 
 
-  //return Stringified version of this Object,
+  // return Stringified version of this Object,
   // with extra debugging info
-  //(helper method for debugging/development phase)
+  // (helper method for debugging/development phase)
   public String debug()
   {
     String s = "";
@@ -122,15 +122,17 @@ public class SuperArray
   public void remove(int index)
   {
     // shift items down to remove the item at index
-    /* 3 7 10 4 0 0 0
-      Index = 1
+    /* 
       NumberElements = 4
-      Remove index 1
+      Goal: Remove index 1
       3 7 10 4 0 0 0
+
       Index 1 = index 2
       3 10 10 4 0 0 0
+
       Index 2 = index 3
       3 10 4 4 0 0 0
+
       Index 3 = 0
       3 10 4 0 0 0 0
     */
@@ -201,11 +203,9 @@ public class SuperArray
   {
     // create a new array with extra space
     // Q: How did you decide how much to increase capacity by?
-    /* YOUR SIMPLE+SMART CODE HERE */
     int newArray[] = new int [numberElements+1];
 
     // copy over all the elements from the old array to the new one
-    /* YOUR SIMPLE+SMART CODE HERE */
     for (int i = 0; i<data.length; i++){
       newArray[i] = data[i];
     }
@@ -213,6 +213,7 @@ public class SuperArray
     // point data to the new array
     // Q: How does this look when illustrated using encapsulation diagram?
     data = newArray;
+    
   }//end grow()
 
 }//end class
