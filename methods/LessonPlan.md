@@ -1,13 +1,11 @@
 ## Lesson objective:
 SWBAT draw multiple circles on the canvas and control its position, size, color, and thickness
 
-### Aim:
+---
 
 ### Warm up
 - (2 min) Talk about favorite Olympics sports
 - (3 min) Brainstorm list of details on how to draw the Olympics ring logo
-
----
 
 ### Mini-Lesson
 - (5 min) Explore ellipse function. Use the WASD and arrow keys to figure out what each argument represents:
@@ -22,12 +20,8 @@ Discuss with a partner what the first number means. The second number, third, et
   - Add a second circle
   - Show resources for other color commands (fill(), noStroke(), etc.)
 
----
-
 ### Lesson Activity
 - (20 min) Replicate the Olympics logo with all of the colors. If you finish early, you can try drawing other images with elllipses (Target logo, venn diagram, mickey mouse, etc.)
-
----
 
 ### Closing
 - (3 min)

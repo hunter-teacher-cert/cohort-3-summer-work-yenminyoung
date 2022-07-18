@@ -1,2 +1,3 @@
 language = "bash"
-run = "ls"
+#run = "cd ds/Pointers; javac Driver.java Node.java; java Driver"
+run = "cd ds/LinkedLists; javac Driver.java Node.java LinkedList.java; java Driver"

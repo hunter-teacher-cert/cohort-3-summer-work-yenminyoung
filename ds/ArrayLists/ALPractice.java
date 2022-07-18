@@ -141,17 +141,27 @@ public class ALPractice{
   Postconditions:
   - The parameter ArrayLists should not be modified.
   */
-  public static ArrayList<Integer> zipLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB){
-    ArrayList<Integer> zip = new ArrayList<Integer>(ListA.size() + ListB.size());
-    for (int i = 0; i<ListA.size() + ListB.size(); i++){
-      int tempA = ListA.get(i);
-      int tempB = ListB.get(i);
-      
+  public static ArrayList<Integer> zipLists(ArrayList<Integer>ListA, ArrayList<Integer>ListB){
+    int totalSize = ListA.size() + ListB.size();
+    ArrayList<Integer> zip = new ArrayList<Integer>(totalSize);
+    int i = 0;
+    while (i < ListA.size() && i < ListB.size()){
+      zip.add(ListA.get(i));
+      zip.add(ListB.get(i));
+      i++;
     }
-    System.out.println("The size of zip is " + ListA.size());
-    System.out.println("The size of zip is " + ListB.size());
-    System.out.println("The size of zip is " + zip.size());
-    return null;
+
+    while (i < ListA.size() && i >= ListB.size()){
+      zip.add(ListA.get(i));
+      i++;
+    }
+
+    while (i < ListB.size() && i >= ListA.size()){
+      zip.add(ListB.get(i));
+      i++;
+    }
+    
+    return zip;
   }
 
 
@@ -199,7 +209,10 @@ public class ALPractice{
     System.out.println("");
     System.out.println("ZIP LISTS:");
     // test zipLists
-    zipLists(A, B);
+    ArrayList<Integer> C = buildRandomList(3, 20);
+    ArrayList<Integer> D = buildRandomList(6, 20);
+    System.out.println("Zip " + C + " and " + D);
+    System.out.println(zipLists(C, D));
   }
 
 }
