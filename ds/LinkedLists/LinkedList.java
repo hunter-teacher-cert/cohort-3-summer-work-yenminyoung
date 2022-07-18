@@ -113,17 +113,27 @@ public class LinkedList{
       Node n = new Node(value, head);
       head = n;
     } else { // Otherwise, first walk to the index
-      Node walker = new Node();
-      walker = head;
-      for (int i = 0; i<index; i++){
-        walker = walker.getNext();
-      }
-      Node n = new Node(value, walker); // Create a new node and point to that index
-      walker = head; // Make a walker again
+      // METHOD 1 UGLY
+      // Node walker = new Node();
+      // walker = head;
+      // for (int i = 0; i<index; i++){
+      //   walker = walker.getNext();
+      // }
+      // Node n = new Node(value, walker); // Create a new node and point to that index
+      // walker = head; // Make a walker again
+      // for (int i = 0; i<index-1; i++){
+      //   walker = walker.getNext();
+      // }
+      // walker.setNext(n); // Set the node prior to the index point to the new node
+
+      // METHOD 2 PRETTY
+      Node walker1 = head;
       for (int i = 0; i<index-1; i++){
-        walker = walker.getNext();
+        walker1 = walker1.getNext();
       }
-      walker.setNext(n); // Set the node prior to the index point to the new node
+      Node walker2 = walker1.getNext();
+      Node n = new Node(value, walker2);
+      walker1.setNext(n);
     }
     
   }
