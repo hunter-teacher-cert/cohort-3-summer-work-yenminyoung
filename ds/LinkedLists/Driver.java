@@ -4,6 +4,7 @@ import java.util.*;
 public class Driver{
   public static void main(String[] args) {
     LinkedList l = new LinkedList();
+    System.out.println("The size is now: " + l.size());
     l.add("Patootie");
     l.add("Cutie");
     l.add("Mr.");
@@ -12,6 +13,7 @@ public class Driver{
     l.add(0, "Oh!");
     System.out.println(l);
     System.out.println("Cutie is at index " + l.indexOf("Cutie"));
+    System.out.println("Poo is at index " + l.indexOf("Poo"));
   
 
   // Create and print an array:
@@ -23,8 +25,8 @@ public class Driver{
     System.out.println("");
 
     // Remove "Cutie"
-    System.out.println("Remove cutie: ");
-    l.remove(3);
+    System.out.println("Remove: ");
+    l.remove(4);
     System.out.println(l);
   }
 }

@@ -28,9 +28,11 @@ remove(int index);
 public class LinkedList{
 
   private Node head;
+  private int sizeLL;
 
   public LinkedList(){
     head = null;
+    sizeLL = 0;
   }
 
   /**
@@ -42,6 +44,7 @@ public class LinkedList{
   public void add(String value){
     Node n1 = new Node(value, head);
     head = n1;
+    sizeLL ++;
   }
 
   /**
@@ -79,15 +82,14 @@ public class LinkedList{
   returns the number of elements in the list
   */
   public int size(){
-    int counter = 0;
-    Node walker = new Node();
-    walker = head;
-    while (walker.getNext() != null){
-      counter ++;
-      walker = walker.getNext();
-    }
-    counter ++;
-    return counter;
+    // int counter = 0;
+    // Node walker = head;
+    // while (walker != null){
+    //   counter ++;
+    //   walker = walker.getNext();
+    // }
+    // return counter;
+    return sizeLL;
   }
 
 
@@ -110,8 +112,7 @@ public class LinkedList{
   public void add(int index, String value){
     // If you want to insert it at the beginning, then setNext to the head
     if (index == 0){
-      Node n = new Node(value, head);
-      head = n;
+      add(value);
     } else { // Otherwise, first walk to the index
       // METHOD 1 UGLY
       // Node walker = new Node();
@@ -134,7 +135,9 @@ public class LinkedList{
       Node walker2 = walker1.getNext();
       Node n = new Node(value, walker2);
       walker1.setNext(n);
+      sizeLL ++;
     }
+    
     
   }
 
@@ -150,14 +153,15 @@ public class LinkedList{
 
   */
   public int indexOf(String value){
-    int counter = 0;
-    Node walker = new Node();
-    walker = head;
-    while (walker.getData() != value){
-      walker = walker.getNext();
-      counter ++;
-    }
-    return counter;
+    // Node walker = head;
+    // for (int i = 0; i<sizeLL; i++){
+    //   if (walker.getData() == value){
+    //     return i;
+    //   } else {
+    //     walker = walker.getNext();
+    //   }
+    // } 
+    return -1;
   }
 
 
@@ -168,21 +172,22 @@ public class LinkedList{
   */
   public String[] toArray(){
     // count the size
-  int size = 0;
-    Node walker = new Node();
-    walker = head;
-    while (walker.getNext() != null){
-      size ++;
-      walker = walker.getNext();
-    }
-    size ++;
+  // int size = 0;
+  //   Node walker = new Node();
+  //   walker = head;
+  //   while (walker.getNext() != null){
+  //     size ++;
+  //     walker = walker.getNext();
+  //   }
+  //   size ++;
+    // Don't need to count the size since we already counted and stored it as sizeLL
 
-    // Create an array of that size
-    String[] a = new String[size];
+    // Create an array of the same size as the Linked List
+    String[] a = new String[sizeLL];
 
     // Walk through the Linked List and set its value to the array
-    walker = head;
-    for (int i = 0; i < size; i++){
+    Node walker = head;
+    for (int i = 0; i < sizeLL; i++){
       a[i] = walker.getData();
       walker = walker.getNext();
     }
@@ -203,23 +208,24 @@ public class LinkedList{
   "a"->"b"->"d"->"e"
   */
   public void remove(int index){
-    // Walker 1 goes to the node prior
-    // Walker 2 goes to the node
-    Node walker1 = new Node();
-    Node walker2 = new Node();
-    walker1 = head;
-    walker2 = head;
-    for (int i = 0; i<index-1; i++){
-      walker1 = walker1.getNext();
-      walker2 = walker2.getNext();
+    if (index == 0){
+      head = head.getNext();
+    } else {
+      // Walker 1 goes to the node prior
+      // Walker 2 goes to the node
+      Node walker1 = head;
+      for (int i = 0; i<index-1; i++){
+        walker1 = walker1.getNext();
+      }
+      Node walker2 = walker1.getNext();
+  
+      // setNext for walker 1 to the node after
+      // setNext for walker 2 to null
+      walker1.setNext(walker2.getNext());
+      walker2.setNext(null);
+      sizeLL --;
     }
-    walker2 = walker2.getNext();
-
-    // setNext for walker 1 to the node after
-    // setNext for walker 2 to null
-    walker1.setNext(walker2.getNext());
-    walker2.setNext(null);
-
     
   }
 }
+
