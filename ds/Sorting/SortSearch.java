@@ -40,7 +40,7 @@ public class SortSearch{
 	data = new ArrayList<Integer>();
 	r = new Random();
 	for (int i=0;i<15;i++){
-	    data.add(r.nextInt(20));
+	    data.add(r.nextInt(10));
 	}
 	
     }
@@ -50,7 +50,7 @@ public class SortSearch{
 	data = new ArrayList<Integer>();
 	r = new Random();
 	for (int i=0;i<size;i++){
-	    data.add(r.nextInt(20));
+	    data.add(r.nextInt(10));
 	}
 	
     }
@@ -126,13 +126,12 @@ Start:3, Index: 4, Value: 7
     */
     public void sort(){
       for (int i = 0; i<data.size(); i++){
-        int start = i;
-        int smallestIndex = findSmallestIndex(start);
+        int smallestIndex = findSmallestIndex(i);
         int smallestValue = data.get(smallestIndex);
-        int temp = data.get(start);
+        int temp = data.get(i);
         
         // data.set(index, value)
-        data.set(start, smallestValue);
+        data.set(i, smallestValue);
         data.set(smallestIndex, temp); 
       }
     }
@@ -164,16 +163,34 @@ Start:3, Index: 4, Value: 7
        Implement a binary search as specified by the comments
        
        This algorithm only works on sorted ArrayLists.
+  	   create assign variables representing the high, low and middle indices 
+  	   while we're not done:
+  	      if the item is at data.get(middle), return middle
+  	      otherwise, update high, low, and middle
     */
     public int binarySearch(int value){
+      // int low = 0;
+      // int high = data.size()-1;
+      // int middle = (high + low)/2;
+      // System.out.println("Low index: " + low);
+      // System.out.println("High index: " + high);
+      // System.out.println("Middle index: " + middle + "\n");
 
-	// create assign variables representing the high, low and middle indices 
-	// while we're not done:
-	//   if the item is at data.get(middle), return middle
-	//   otherwise, update high, low, and middle
-
-	return 0;
-	    
+      // while (high > low){
+      //   if (value > data.get(middle)){
+      //     low = middle + 1;
+      //     middle = (high + low)/2;
+      //     System.out.println("New middle: " + middle);
+      //   } else if (value < data.get(middle)) {
+      //     high = middle - 1;
+      //     middle = (high + low)/2;
+      //     System.out.println("New middle: " + middle);
+      //   } else if (value == middle){
+      //     System.out.println("The value is at " + middle);
+      //     return middle;
+      //   }
+      // }
+	    return -1;
     }
     
     /**
