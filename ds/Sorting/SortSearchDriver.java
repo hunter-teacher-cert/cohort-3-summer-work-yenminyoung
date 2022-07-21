@@ -29,28 +29,20 @@ public class SortSearchDriver {
     
       // Part 4!
 
-      System.out.println("First Occurance:");
+      System.out.println("First Occurrence:");
       System.out.println(ss.linearSearch(10) + "\n");
 
       // Binary Search
-      // System.out.println("Binary Search:");
-      // System.out.println(ss);
-      // System.out.println("What's the index for the value 8? " + ss.binarySearch(8));
-      // // System.out.println("What's the index for the value 8? " + ss.binarySearch(8));
-
-
-      // MAke your own arraylist
-      ArrayList<Integer> boo = new ArrayList<Integer>();
-      for (int j=0;j<15;j++){
-  	    boo.add(j);
-  	  }
-      System.out.println(boo + "\n");
       System.out.println("Binary Search:");
-      System.out.println("What's the index for the value 8? ");
-      boo.binarySearch(8);
-      // System.out.println("What's the index for the value 8? " + ss.binarySearch(8));
+      System.out.println("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]");
+      System.out.println(ss);
+      int a = 0;
+      // System.out.println(a + " first occurs at " + ss.binarySearch(a));
 
-	  //but can you run our sorting functions on this list?  That was the problem.  We think we need to put this into a constructor in the SortSearch.java file    
-
+      for (int k = 0; k<8; k++){
+        System.out.println(k + " first occurs at " + ss.binarySearch(k));
+      }
+      
+      
     }
 }

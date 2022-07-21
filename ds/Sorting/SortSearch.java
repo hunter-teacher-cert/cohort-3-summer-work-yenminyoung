@@ -40,7 +40,7 @@ public class SortSearch{
 	data = new ArrayList<Integer>();
 	r = new Random();
 	for (int i=0;i<15;i++){
-	    data.add(r.nextInt(10));
+	    data.add(r.nextInt(8));
 	}
 	
     }
@@ -50,7 +50,7 @@ public class SortSearch{
 	data = new ArrayList<Integer>();
 	r = new Random();
 	for (int i=0;i<size;i++){
-	    data.add(r.nextInt(10));
+	    data.add(r.nextInt(8));
 	}
 	
     }
@@ -169,42 +169,36 @@ Start:3, Index: 4, Value: 7
   	      otherwise, update high, low, and middle
     */
     public int binarySearch(int value){
-      // int low = 0;
-      // int high = data.size()-1;
-      // int middle = (high + low)/2;
-      // System.out.println("Low index: " + low);
-      // System.out.println("High index: " + high);
-      // System.out.println("Middle index: " + middle + "\n");
+      int low = 0;
+      int high = data.size()-1;
+      int middle = (high + low)/2;
 
-      // while (high > low){
-      //   if (value > data.get(middle)){
-      //     low = middle + 1;
-      //     middle = (high + low)/2;
-      //     System.out.println("New middle: " + middle);
-      //   } else if (value < data.get(middle)) {
-      //     high = middle - 1;
-      //     middle = (high + low)/2;
-      //     System.out.println("New middle: " + middle);
-      //   } else if (value == middle){
-      //     System.out.println("The value is at " + middle);
-      //     return middle;
-      //   }
-      // }
+      while (high >= low){
+        if (value == data.get(middle)){
+          while(middle > 0 && data.get(middle-1) == value){
+            middle --;
+          }
+          return middle;
+        } else if (value > data.get(middle)){
+          low = middle+1;
+          middle = (high + low)/2;
+        } else if (value < data.get(middle)) {
+          high = middle-1;
+          middle = (high + low)/2;
+        } 
+      }
 	    return -1;
     }
     
     /**
        Implement a RECURSIVE binary search as specified by the comments
-       
        This algorithm only works on sorted ArrayLists.
     */
 
     public int binarySearchRecursive(int value, int lowIndex, int highIndex){
 
-	// refer to class discussion
 	
-	return 0;
-	    
+	return 0;	    
     }
     
 	
