@@ -1,0 +1,39 @@
+Yenmin Young
+Methods Summer 2022
+GALLERY TOUR LOG
+
+
+USAGE OF TOP SECTION: 
+* Fill in discoveries etc section as you go, or after your is complete.
+* Replicate the 
+* Delete these instructions once read.
+====================================================
+DISCOVERIES:
+* You can include gifs!
+* You can include checkboxes!
+* You can add emojis!
+
+
+LINGERING QUESTIONS:
+* Why do we need a table for this portfolio?
+* How do you include a sidebar with links to more pages? (see Erwin Lara's)
+* How do you make a link bold when you hover over it? (see DrydenArt's)
+* How do you make the table heading row a different color to make it stand out? (see Jenna Lin's)
+* How do you insert a block of code? (see Kiana Herr's and Kate Maschmeyer's)
+
+
+
+COMMENTS/CONCERNS/OTHER:
+* Why aren't some of them styled? It looks like raw text (Jessica, Shana, etc.)
+====================================================
+
+
+USAGE OF BOTTOM SECTION: 
+* For any site you deem notable, add an entry using the format below
+====================================================
+notable site:
+URL
+notable aspect:
+what is cool about this site
+-------------------------------------
+*Note: See my lingering questions since I consider all of those notable.
