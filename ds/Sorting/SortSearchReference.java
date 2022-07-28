@@ -80,10 +80,6 @@ public class SortSearchReference{
        0 to the end of the ArrayList.
          For each index, find the smallest from that Location
 	 to the end of the array and swap it with that index.
-
-	 
-       
-
     */
     public void sort(){
 	int i;
@@ -94,9 +90,7 @@ public class SortSearchReference{
 	    tmp = data.get(smallIndex);
 	    data.set(smallIndex,data.get(i));
 	    data.set(i,tmp);
-	}
-	
-
+  }
     }
 
 
@@ -229,35 +223,35 @@ public class SortSearchReference{
     // METHOD 1 -------------
     // Compare the first two of each one. The smaller one gets added to the newList. Increase the index of the list that was just added. Repeat until one of the lists reaches the end.
 
-    // int i = 0;
-    // int j = 0;
-    // // merge the two until one of them runs out
-    // while (i < list1.size() && j < list2.size()){
-    //   if (list1.get(i) <= list2.get(j)){
-    //     newList.add(list1.get(i));
-    //     i++;
-    //   } else if (list2.get(j) < list1.get(i)){
-    //     newList.add(list2.get(j));
-    //     j++;
-    //   }
-    // }
-    // // Which index did we end up on?
+    int i = 0;
+    int j = 0;
+    // merge the two until one of them runs out
+    while (i < list1.size() && j < list2.size()){
+      if (list1.get(i) <= list2.get(j)){
+        newList.add(list1.get(i));
+        i++;
+      } else if (list2.get(j) < list1.get(i)){
+        newList.add(list2.get(j));
+        j++;
+      }
+    }
+    // Which index did we end up on?
     // System.out.println("i: " + i + ", j: " + j);
 
-    // // Add the rest of the remaining list
-    // // If list2 was finished through, add the rest of list1
-    // // If list1 was finished through, add the rest of list2
-    // if (j == 20){
-    //   while (i < list1.size()){
-    //     newList.add(list1.get(i));
-    //     i++;
-    //   }
-    // } else if (i == 20){
-    //   while (j < list2.size()){
-    //     newList.add(list2.get(j));
-    //     j++;
-    //   }
-    // }
+    // Add the rest of the remaining list
+    // If list2 was finished through, add the rest of list1
+    // If list1 was finished through, add the rest of list2
+    if (j == list2.size()){
+      while (i < list1.size()){
+        newList.add(list1.get(i));
+        i++;
+      }
+    } else if (i == list1.size()){
+      while (j < list2.size()){
+        newList.add(list2.get(j));
+        j++;
+      }
+    }
     // END METHOD 1 -------------
 
 
@@ -284,5 +278,41 @@ public class SortSearchReference{
     // }
     // END METHOD 2 -------------
   	return newList;
-  } 
+  }
+
+  public ArrayList<Integer> mergeSort(ArrayList<Integer> list){
+
+      // check for base case
+    if (list.size() < 2){
+      return list;
+    } else {  // if not the base case
+      // split in two lists
+      ArrayList<Integer> listLeft = new ArrayList<Integer>();
+      ArrayList<Integer> listRight = new ArrayList<Integer>();
+      int middleIndex = list.size()/2;
+      // System.out.println("The middle index is: " + middleIndex);
+      for (int i = 0; i < middleIndex; i++){
+        listLeft.add(list.get(i));
+      }
+      for (int i = middleIndex; i<list.size(); i++){
+        listRight.add(list.get(i));
+      }
+
+      listLeft = mergeSort(listLeft);  // magically sorts the numbers
+      listRight = mergeSort(listRight);
+      
+      // System.out.println("Left List: " + listLeft);
+      // System.out.println("Right List: " + listRight);
+      
+      // merge them together into a new list
+      list = merge(listLeft, listRight);
+      // return that new list 
+      return list;
+    }
+  }
+
+
+  public void msort(){
+      data =  mergeSort(data);
+  }
 }

@@ -1,4 +1,6 @@
 language = "bash"
 #run = "cd ds/Pointers; javac Driver.java Node.java; java Driver"
 #run = "cd ds/Sorting; javac *.java; java SortSearchDriver"
-run = "cd ds/Sorting; javac SortSearchReference.java SortSearchReferenceDriver.java; java SortSearchReferenceDriver"
+#run = "cd ds/Sorting; javac SortSearchReference.java SortSearchReferenceDriver.java; java SortSearchReferenceDriver"
+#run = "cd ds/trees; javac ExpressionTree.java TreeDriver.java; java TreeDriver"
+run = "cd ds/StacksQueues; javac *.java; java Driver"
